@@ -46,6 +46,16 @@ For non-trivial work, leave one of these artifacts:
 Prefer structured files over chat-only conclusions. A result that cannot be
 re-read later is not research infrastructure.
 
+## Progress Tracking (Mandatory)
+
+Track all development/research progress in `vibe-harness/kanban.json` and durable
+decisions in `vibe-harness/decisions.json` (git-tracked). Before non-trivial
+work, ensure a task exists and is `in_progress`; on completion mark it `done`
+with `details` and `git diff --numstat` line stats. One `in_progress` task per
+person; respect `next_id` discipline. Commit the kanban with the code it
+describes. The Vibe-Harness server is optional — editing the JSON directly is the
+normal path. Full rules: `protocols/08_progress_tracking.md`.
+
 ## Multi-Program Rule
 
 This workspace can host many independent R&D programs. Before creating or

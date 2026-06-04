@@ -79,6 +79,18 @@ benchmarks, and experiments before making product or paper claims.
 - **Claim Gate**: A paper claim must exist in the claim ledger before it appears
   in the manuscript.
 
+## Progress Tracking (Mandatory)
+
+All R&D progress is tracked in `vibe-harness/kanban.json` (and durable decisions
+in `vibe-harness/decisions.json`), git-tracked in your working repo. This is not
+optional. Before non-trivial work, ensure a matching task exists and set it to
+`in_progress`; on completion set it to `done` with `details` and
+`lines_added`/`lines_removed` from `git diff --numstat`. Keep one `in_progress`
+task per person and respect `next_id` discipline. A starter
+`vibe-harness/kanban.json` ships with this package. The optional Vibe-Harness
+Board UI renders these same files; editing the JSON directly is the normal,
+reliable path. Full rules: `protocols/08_progress_tracking.md`.
+
 ## Domain Specialization
 
 This package is domain-neutral. To specialize it for your program, write a
