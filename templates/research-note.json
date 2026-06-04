@@ -1,0 +1,82 @@
+{
+  "title": "연구노트",
+  "subtitle": "",
+  "project_name": "",
+  "researcher": "연구자명 / 소속(주)",
+  "date": "2026.01.01",
+  "research_type": "",
+  "research_storage": "",
+  "purpose": "",
+  "summary": "",
+  "sections": [
+    {
+      "heading": "1. 연구 질문",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": [
+        { "lead": "입력:", "body": "" },
+        { "lead": "출력:", "body": "" },
+        { "lead": "평가:", "body": "" }
+      ]
+    },
+    {
+      "heading": "2. 방법 / 설정",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": []
+    },
+    {
+      "heading": "3. 결과",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": []
+    },
+    {
+      "heading": "4. 실패 유형 분류",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": []
+    },
+    {
+      "heading": "5. 제품 / 응용 관점 해석",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": []
+    },
+    {
+      "heading": "6. 이번 회차 결론",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": [
+        { "lead": "채택:", "body": "" },
+        { "lead": "유지:", "body": "" },
+        { "lead": "금지:", "body": "" }
+      ]
+    },
+    {
+      "heading": "7. 다음 연구 계획",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": []
+    }
+  ],
+  "tables": [
+    {
+      "headers": ["항목", "결과", "판단"],
+      "widths_twips": [2400, 4544, 2600],
+      "rows": [
+        ["", "", ""]
+      ]
+    }
+  ],
+  "footer_company": "소속㈜",
+  "footer_author": "작성자명",
+  "footer_reviewer": "검토자명"
+}

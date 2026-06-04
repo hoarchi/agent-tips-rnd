@@ -1,0 +1,14 @@
+{
+  "programs": [
+    {
+      "program_id": "example-evidence-grounded-qa",
+      "name": "Example: Evidence-Grounded Document QA",
+      "status": "template_example",
+      "owner": "your-team",
+      "created_at": "2026-01-01",
+      "program_path": "programs/example-evidence-grounded-qa",
+      "latest_run_path": null,
+      "description": "A worked, domain-neutral example program. Copy it to start your own: replace the brief, hypotheses, benchmark, and claims with your real research."
+    }
+  ]
+}

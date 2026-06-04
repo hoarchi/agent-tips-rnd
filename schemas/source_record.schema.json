@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-tips-rnd.local/schemas/source_record.schema.json",
+  "title": "SourceRecord",
+  "type": "object",
+  "required": ["id", "title", "url", "source_type", "reliability_tier", "captured_at", "claims"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^src_[a-zA-Z0-9_\\-]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "minLength": 1 },
+    "identifier": {
+      "type": "object",
+      "properties": {
+        "doi": { "type": "string" },
+        "arxiv": { "type": "string" },
+        "github": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["peer_reviewed", "preprint", "official_docs", "benchmark", "github", "technical_blog", "vendor_claim", "secondary"]
+    },
+    "reliability_tier": { "type": "string", "enum": ["A", "B", "C", "D"] },
+    "captured_at": { "type": "string" },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "support_level"],
+        "properties": {
+          "claim": { "type": "string" },
+          "support_level": { "type": "string", "enum": ["direct", "indirect", "background", "weak"] },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
+

@@ -1,0 +1,17 @@
+{
+  "_comment": "Template example. Every manuscript claim must exist here with linked evidence before it appears in a paper. Schema: schemas/claim_ledger.schema.json",
+  "program_id": "example-evidence-grounded-qa",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim": "The evidence-bound method improves abstention accuracy over the direct-LLM baseline on the seed benchmark.",
+      "status": "unsupported",
+      "evidence": [],
+      "scope_limit": "Seed benchmark only; exploratory.",
+      "manuscript_location": null
+    }
+  ],
+  "unsupported_claims_to_remove": [],
+  "source_claims": [],
+  "empirical_claims": []
+}

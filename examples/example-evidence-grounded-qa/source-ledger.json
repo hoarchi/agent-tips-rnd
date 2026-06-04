@@ -1,0 +1,17 @@
+{
+  "_comment": "Template example. One record per literature/system source. Schema: schemas/source_record.schema.json",
+  "program_id": "example-evidence-grounded-qa",
+  "sources": [
+    {
+      "source_id": "S1",
+      "title": "Example cited work",
+      "type": "peer_reviewed",
+      "reliability_tier": "tier_1",
+      "url": "",
+      "key_claim": "What this source actually shows.",
+      "method_or_data": "How they showed it.",
+      "limitation": "Why it does not settle our question.",
+      "relevance": "Why it matters to this program."
+    }
+  ]
+}

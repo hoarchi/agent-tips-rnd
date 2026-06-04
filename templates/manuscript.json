@@ -1,0 +1,134 @@
+{
+  "title": "Paper Title Goes Here",
+  "subtitle": "Optional subtitle or short descriptor",
+  "authors": [
+    { "name": "First Author", "mark": "1*" },
+    { "name": "Second Author", "mark": "1" }
+  ],
+  "affiliations": [
+    "1 Your Organization, City, Country"
+  ],
+  "corresponding": "* Corresponding author: you@example.com",
+  "keywords": [
+    "keyword one",
+    "keyword two",
+    "keyword three"
+  ],
+  "keywords_label": "Keywords —",
+  "abstract_label": "Abstract",
+  "abstract": "State the problem, the gap in existing approaches, the contribution, the benchmark and metrics, the headline result with its scope limit, and the main takeaway. Every quantitative claim in this abstract must trace to the claim ledger. Do not state a result the run artifacts cannot support.",
+  "_comment_secondary_abstract": "Delete the next two fields for an English-only paper. For a dual-language (e.g. KCI) submission, set abstract_secondary_label to 초록 and write the Korean abstract.",
+  "figure_label_prefix": "Figure",
+  "table_label_prefix": "Table",
+  "references_label": "References",
+  "sections": [
+    {
+      "heading": "1. Introduction",
+      "paragraphs": [
+        "Open with the real-world problem and why it matters.",
+        { "no_indent": true, "text": "State the gap: what existing approaches cannot do, stated precisely enough that the contribution below is not already covered." },
+        "Summarize the contribution as an explicit bulleted list of claims, each of which must appear in the claim ledger before it appears here."
+      ],
+      "bullets": [
+        { "lead": "Contribution 1:", "body": "..." },
+        { "lead": "Contribution 2:", "body": "..." },
+        { "lead": "Contribution 3:", "body": "..." }
+      ]
+    },
+    {
+      "heading": "2. Related Work",
+      "paragraphs": [
+        "Group prior work into themes. Every claim about prior work must cite a numbered reference from the References section.",
+        "End with the specific gap this paper fills."
+      ]
+    },
+    {
+      "heading": "3. Method",
+      "paragraphs": [
+        "Describe the approach precisely enough to reproduce."
+      ],
+      "sections": [
+        {
+          "heading": "3.1. Subsection",
+          "paragraphs": [
+            "Nested subsections are created with a nested sections array. Heading level is inferred from the leading number depth (3 -> H1, 3.1 -> H2, 3.1.2 -> H3)."
+          ],
+          "equations": [
+            { "text": "metric = numerator / denominator", "number": true }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "4. Experimental Setup",
+      "paragraphs": [
+        "Name the benchmark, the dataset snapshot, the baselines, the fixed prompts/configs, run IDs, and metrics. Each numeric setup detail must trace to a run artifact or benchmark card."
+      ],
+      "tables": [
+        {
+          "caption": "Methods compared and their configurations.",
+          "headers": ["Method", "Setting", "Config", "Run ID"],
+          "widths_twips": [2600, 2400, 2600, 1944],
+          "rows": [
+            ["Baseline A", "...", "...", "run-xxx"],
+            ["Baseline B", "...", "...", "run-xxx"],
+            ["Ours", "...", "...", "run-xxx"]
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "5. Results",
+      "paragraphs": [
+        "Report results against nulls and baselines. State confidence intervals where appropriate. Do not upgrade an exploratory result into a confirmatory claim.",
+        "Reference every figure and table in the text, e.g. as shown in Table 2 and Figure 1."
+      ],
+      "figures": [
+        {
+          "caption": "Caption describing the figure.",
+          "image": "figures/result.png",
+          "width_in": 5.2,
+          "placeholder": "[figure asset pending: figures/result.png]"
+        }
+      ],
+      "tables": [
+        {
+          "caption": "Main results across methods and metrics.",
+          "headers": ["Method", "Metric 1", "Metric 2", "Metric 3"],
+          "widths_twips": [2944, 2200, 2200, 2200],
+          "rows": [
+            ["Baseline A", "0.00", "0.00", "0.00"],
+            ["Baseline B", "0.00", "0.00", "0.00"],
+            ["Ours", "0.00", "0.00", "0.00"]
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "6. Discussion",
+      "paragraphs": [
+        "Interpret what the results mean and do not mean. Tie back to the decision the research informs."
+      ]
+    },
+    {
+      "heading": "7. Limitations",
+      "paragraphs": [
+        "State the honest boundary of the claims: what was not tested, dataset size, leakage controls. A missing limitation is an overclaim."
+      ]
+    },
+    {
+      "heading": "8. Conclusion",
+      "paragraphs": [
+        "Restate the contribution at its supported scope and name the next research step."
+      ]
+    }
+  ],
+  "references": [
+    "Author, A., et al. Title of the cited work. Venue, Year.",
+    "Author, B. Another reference. arXiv:XXXX.XXXXX, Year."
+  ],
+  "top_margin_in": 0.9,
+  "bottom_margin_in": 0.9,
+  "left_margin_in": 0.95,
+  "right_margin_in": 0.95
+}

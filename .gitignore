@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.venv-*/
+venv/
+
+# Local scratch / secrets
+*.log
+.env

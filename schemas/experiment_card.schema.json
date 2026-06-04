@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-tips-rnd.local/schemas/experiment_card.schema.json",
+  "title": "ExperimentCard",
+  "type": "object",
+  "required": ["id", "hypothesis_id", "benchmark_id", "methods", "runs", "decision"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^exp_[a-zA-Z0-9_\\-]+$" },
+    "hypothesis_id": { "type": "string" },
+    "benchmark_id": { "type": "string" },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "role", "config"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string", "enum": ["baseline", "candidate", "ablation", "oracle"] },
+          "config": { "type": "object" }
+        }
+      }
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["run_id", "method", "artifact_path"],
+        "properties": {
+          "run_id": { "type": "string" },
+          "method": { "type": "string" },
+          "commit": { "type": "string" },
+          "dataset_snapshot": { "type": "string" },
+          "model_provider": { "type": "string" },
+          "artifact_path": { "type": "string" },
+          "metrics": { "type": "object" }
+        }
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["accept_for_now", "reject", "inconclusive", "revise", "productize"]
+    },
+    "deviations": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
+

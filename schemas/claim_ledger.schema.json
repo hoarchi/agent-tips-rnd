@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-tips-rnd.local/schemas/claim_ledger.schema.json",
+  "title": "ClaimLedger",
+  "type": "object",
+  "required": ["claims"],
+  "properties": {
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "claim", "status", "evidence"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^claim_[a-zA-Z0-9_\\-]+$" },
+          "claim": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["supported", "partially_supported", "unsupported", "exploratory", "background"]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["type", "ref"],
+              "properties": {
+                "type": { "type": "string", "enum": ["source", "benchmark", "run", "annotation", "observation"] },
+                "ref": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          },
+          "scope_limit": { "type": "string" },
+          "manuscript_location": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
+

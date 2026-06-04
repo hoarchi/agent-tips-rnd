@@ -1,0 +1,149 @@
+---
+name: agent-tips-rnd
+description: Use for scientific autonomous R&D programs that need objective literature review, falsifiable hypotheses, benchmark design, reproducible experiments, skeptical review, and manuscript-ready claim ledgers. Especially useful when an early-stage deep-tech / TIPS startup wants PhD-level research discipline rather than anecdote-driven implementation.
+metadata:
+  short-description: "Scientific R&D loop: evidence -> hypothesis -> benchmark -> experiment -> paper."
+---
+
+# Agent TIPS R&D
+
+Use this skill when the task is research, not ordinary implementation. The goal
+is to discover and document what is true, useful, and publishable.
+
+## First Principle
+
+Do not center the research on a user's favorite examples. Treat them as seed
+observations. Convert them into research questions, competing hypotheses,
+benchmarks, and experiments before making product or paper claims.
+
+## Workflow
+
+1. **Intake**
+   - Read the product/research context.
+   - Identify observations, assumptions, desired claims, constraints, and
+     sensitive data boundaries.
+   - Write or update `research-brief.md`.
+
+2. **Landscape**
+   - Search current literature, systems, datasets, and open-source agents.
+   - Separate peer-reviewed work, preprints, GitHub projects, docs, and vendor
+     claims.
+   - Write `literature-matrix.md` with source reliability tiers.
+
+3. **Question Framing**
+   - Define research questions, null hypotheses, competing hypotheses, and
+     operational definitions.
+   - Require at least one plausible alternative explanation for each main
+     hypothesis.
+   - Write `hypothesis-card.md`.
+
+4. **Benchmark Design**
+   - Define task instances, gold labels, data inclusion rules, leakage controls,
+     metrics, pass/fail criteria, and error taxonomy.
+   - Include abstention and negative examples when hallucination risk matters.
+   - Write `benchmark-card.md`.
+
+5. **Experiment Design and Execution**
+   - Define baselines before proposing a new method.
+   - Use fixed prompts/configs, pinned datasets, run IDs, and artifacts.
+   - Write `experiment-card.md` for every run family.
+
+6. **Analysis**
+   - Compare against nulls and baselines.
+   - Report failures, confidence intervals where appropriate, and limitations.
+   - Do not upgrade an exploratory result into a confirmatory claim.
+
+7. **Claim Ledger**
+   - Every manuscript claim must link to evidence: source, benchmark, run
+     artifact, human annotation, or verified observation.
+   - Unsupported claims are marked `unsupported` or deleted.
+
+8. **Manuscript**
+   - Draft only after the claim ledger supports the intended contribution.
+   - Keep contribution, method, evaluation, and limitation claims aligned with
+     evidence.
+
+9. **Skeptical Review**
+   - Run a red-team pass before product adoption or paper submission.
+   - Look for missing baselines, data leakage, cherry-picked examples,
+     hallucinated citations, fabricated numbers, and overbroad claims.
+
+## Mandatory Gates
+
+- **Source Gate**: A literature/system claim must have a source record.
+- **Benchmark Gate**: A performance claim must name the benchmark and metric.
+- **Run Gate**: A numeric result must name a run artifact or reproducible
+  command.
+- **Abstention Gate**: If the domain punishes false positives, the benchmark
+  must include unanswerable/negative cases.
+- **Claim Gate**: A paper claim must exist in the claim ledger before it appears
+  in the manuscript.
+
+## Domain Specialization
+
+This package is domain-neutral. To specialize it for your program, write a
+charter under `programs/{program_id}/` that states the domain defaults: what
+counts as evidence, which metrics matter (e.g. answer accuracy, evidence
+precision/recall, abstention accuracy, calculation accuracy, localization
+error, latency, cost), and which baselines a new method must beat. Keep
+domain-specific guidance in the program folder, not in this skill file, so the
+skill stays reusable across programs.
+
+## Research Note Defaults (연구노트 DOCX)
+
+When generating a Korean research-note DOCX:
+
+- Use only the user-provided note date. The generator rejects full dates in the
+  document body/header/footer that do not match the spec date.
+- The footer is a single signature line driven by the spec
+  `footer_company / footer_author / footer_reviewer` fields:
+  `페이지 PAGE / NUMPAGES YYYY. MM. DD {회사} 작성자 : … / 검토자 : …`.
+  Do not add a second internal-use footer line.
+- Use first-line indentation for normal body paragraphs. Use `dash: true` in a
+  paragraph spec only when a visible leading `-` line is intentionally needed.
+- Keep list items as `List Paragraph` text without manual hyphen markers.
+- Write the note in Korean report/bullet style (개조식) from the start. Prefer
+  concise nominal endings such as `확장함`, `필요함`, `확인함`, `것임`, `아님`,
+  `금지`. Narrative endings such as `하였다`, `했다`, `되었다`, `한다`,
+  `것이다`, `아니다`, `있다` at sentence end are **rejected** by the generator.
+  Do not rely on after-the-fact mechanical replacement.
+
+## Manuscript Defaults (논문 DOCX)
+
+When drafting an academic paper:
+
+- Plan first with `templates/manuscript-plan.md` and the claim ledger. Draft the
+  full body only after the claim ledger can support the intended contribution.
+- Every quantitative claim in the manuscript must already exist in the claim
+  ledger (Claim Gate). The generator does not enforce this — you must.
+- Produce the deliverable with `scripts/create_manuscript_docx.py` from a
+  `templates/manuscript.json`-shaped spec (IMRaD: title, authors, abstract,
+  keywords, numbered sections, figures, tables, equations, references).
+- The manuscript format is language-agnostic. For international venues write the
+  body in English; for KCI/국내 학회 switch the label fields (`abstract_label`,
+  `references_label`, `figure_label_prefix`, `table_label_prefix`) to Korean and
+  optionally fill `abstract_secondary` for a dual-language abstract.
+- Unlike the research note, manuscripts use full narrative prose — the
+  brief-ending rule does **not** apply.
+- See `templates/README.md` for the full field reference of both DOCX formats.
+
+## Files To Load
+
+- Read `docs/operating-model.md` for the complete autonomous research lifecycle.
+- Read `docs/external-benchmark-survey.md` before selecting external agents or
+  borrowing design patterns.
+- Read `docs/methodology.md` before defining metrics or experiments.
+- Use templates in `templates/` for artifacts.
+- Use schemas in `schemas/` when producing machine-checkable JSON.
+- Use `scripts/create_research_note_docx.py` with `templates/research-note.json`
+  when a research note DOCX is needed. Prefer writing the note under the owning
+  program's `research-notes/{date}/` folder.
+- Use `scripts/create_manuscript_docx.py` with `templates/manuscript.json` when
+  an academic paper DOCX is needed. Prefer writing the spec under the owning
+  program's `manuscripts/{name}/` folder. See `templates/README.md`.
+- Use `scripts/score_benchmark_outputs.py` when a benchmark has prediction JSON
+  and needs lightweight answer/evidence/abstention/localization scoring.
+- Use `scripts/score_extraction_diagnostics.py` when extraction diagnostics
+  report partial required-evidence matches and the research needs extraction
+  progress separate from strict answer correctness.
+- Run `scripts/validate_artifacts.py <artifact-dir>` when JSON artifacts exist.
