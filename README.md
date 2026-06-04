@@ -81,7 +81,21 @@ cd ~/.agent-tips-rnd && ./install.sh
 Then, in your agent, invoke the `agent-tips-rnd` skill (or point the agent at
 `SKILL.md`).
 
+### For teams
+
+Every teammate runs the same one-liner on their own machine — that is the whole
+onboarding. The install is per-user (it links into each person's
+`~/.claude/skills` / `~/.codex/skills`), while the research itself lives in your
+project repos. Nothing is shared implicitly; everyone pulls the same versioned
+package and tracks their work in the project's `vibe-harness/kanban.json`.
+
+> If this repo is still **private**, the `curl | bash` one-liner cannot read the
+> raw URL. Either make the repo public, or add teammates as collaborators and
+> have them use the **Manual** clone (their `git` credentials handle auth).
+
 ## Update
+
+Already installed? Update in place — no reinstall:
 
 ```bash
 agent-tips-rnd-update      # if install added it to your PATH
@@ -89,9 +103,16 @@ agent-tips-rnd-update      # if install added it to your PATH
 ~/.agent-tips-rnd/update.sh
 ```
 
-`update.sh` pulls the latest version, re-links the skill directories, and prints
-what changed since your installed `VERSION`. Your own `programs/` and `runs/`
-are never touched — the install lives separately from your working research.
+How it works: the installer **symlinks** the skill directories to a managed git
+clone at `~/.agent-tips-rnd`. `update.sh` runs `git pull --ff-only` on that
+clone, re-links (so new files are picked up), and prints what changed since your
+installed `VERSION`. Because the skill is a symlink to the clone, the pull is the
+update — there is nothing to copy. Your own `programs/` and `runs/` are never
+touched; the install lives separately from your working research.
+
+> Compared to a copy-based skill installer (e.g. Vibe-Harness, which copies
+> files and registers a launch agent on setup), this package is symlink +
+> `git pull`: lighter, and updates are just a pull.
 
 ## Python dependency
 
@@ -115,6 +136,20 @@ python -m pip install python-docx
    or a paper with `scripts/create_manuscript_docx.py`
    (spec: `templates/manuscript.json`). See `templates/README.md` for the full
    field reference.
+
+## Progress tracking is mandatory
+
+This agent **requires** progress to be tracked in `vibe-harness/kanban.json`
+(and durable decisions in `vibe-harness/decisions.json`), git-tracked in your
+project. A starter `vibe-harness/` ships with the package, so tracking starts
+on day one. The loop: add a task → `in_progress` before you start → `done` with
+`details` and `git diff --numstat` line stats when finished. One `in_progress`
+task per person; never reuse a `next_id`.
+
+It is **JSON-first**: you do not need any server or extra tool — the agent edits
+the JSON directly. If you separately install the Vibe-Harness skill, its Board
+UI at `localhost:4242` simply renders these same files. Full rules:
+`protocols/08_progress_tracking.md`.
 
 ## License
 
