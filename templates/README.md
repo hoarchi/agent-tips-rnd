@@ -38,6 +38,14 @@ the manuscript DOCX generator below — plan first, then draft.
 
 ## 2. 연구노트 (research note) — DOCX
 
+Three ways to use it — pick whichever fits:
+
+1. **Open the prebuilt DOCX** `templates/research-note-template.docx` directly in
+   Word and fill it in. (Rendered from the empty spec — no tools needed.)
+2. **Edit the JSON spec** `templates/research-note.json` and generate a DOCX.
+3. Both: generate once, then keep editing the JSON and regenerating.
+
+- **Prebuilt DOCX:** `templates/research-note-template.docx`
 - **Spec template:** `templates/research-note.json` (an emptied, fill-in
   skeleton — copy it and write your own note)
 - **Generator:** `scripts/create_research_note_docx.py`
@@ -47,14 +55,14 @@ the manuscript DOCX generator below — plan first, then draft.
 ```bash
 python scripts/create_research_note_docx.py \
   --input  programs/<program_id>/research-notes/<YYMMDD>/research-note-spec.json \
-  --sample <any existing note>.docx \
   --output programs/<program_id>/research-notes/<YYMMDD>/연구노트_<YYMMDD>.docx
 ```
 
-`--sample` is a required style carrier: a `.docx` whose styles (fonts, table
-styles) are reused. Reuse any previously generated note as the carrier, or
-generate a first one from any blank Word `.docx`. Write the spec under the
-owning program's `research-notes/{YYMMDD}/` folder.
+`--sample` is **optional**: a `.docx` whose styles (fonts, table styles) are
+reused. If omitted, a blank document is used — so the command above works with
+nothing but the JSON. Pass `--sample <any existing note>.docx` only if you want
+to inherit a specific document's styles. Write the spec under the owning
+program's `research-notes/{YYMMDD}/` folder.
 
 ### Spec fields
 
@@ -91,6 +99,8 @@ or rename sections freely — the generator renders whatever the spec contains.
 
 ## 3. 논문 (manuscript) — DOCX
 
+- **Prebuilt DOCX:** `templates/manuscript-template.docx` (open in Word to see
+  the layout)
 - **Spec template:** `templates/manuscript.json`
 - **Generator:** `scripts/create_manuscript_docx.py`
 

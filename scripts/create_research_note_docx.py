@@ -5,13 +5,13 @@ The script is intentionally generic:
 
   python scripts/create_research_note_docx.py \
     --input note.json \
-    --sample path/to/sample.docx \
-    --output out/research-note.docx
+    --output out/research-note.docx \
+    [--sample path/to/style-carrier.docx]
 
-It uses a sample DOCX as the style carrier, clears the body, then writes a
-research-note document using the same broad format: opening research-purpose
-box, numbered prose sections, list-paragraph bullets, and optional compact
-tables.
+`--sample` is optional: if omitted, a blank document is used as the style
+carrier. The script clears the body, then writes a research-note document using
+the same broad format: opening research-purpose box, numbered prose sections,
+list-paragraph bullets, and optional compact tables.
 """
 
 from __future__ import annotations
@@ -441,11 +441,11 @@ def add_footer(doc: Document, spec: dict[str, Any]) -> None:
         add_footer_run(signature, f" {date} {company} 작성자 : {researcher} _____________ / 검토자 : {reviewer} _____________")
 
 
-def build_docx(spec: dict[str, Any], sample: Path, output: Path) -> None:
+def build_docx(spec: dict[str, Any], output: Path, sample: Path | None = None) -> None:
     spec = replace_date_placeholders(spec, str(spec.get("date", "")))
     assert_brief_note_style(spec)
     output.parent.mkdir(parents=True, exist_ok=True)
-    doc = Document(str(sample))
+    doc = Document(str(sample)) if sample else Document()
     clear_body(doc)
 
     section = doc.sections[0]
@@ -495,12 +495,15 @@ def build_docx(spec: dict[str, Any], sample: Path, output: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", required=True, type=Path, help="Research note JSON spec")
-    parser.add_argument("--sample", required=True, type=Path, help="DOCX sample/style carrier")
+    parser.add_argument(
+        "--sample", type=Path, default=None,
+        help="Optional DOCX style carrier. If omitted, a blank document is used.",
+    )
     parser.add_argument("--output", required=True, type=Path, help="Output DOCX path")
     args = parser.parse_args()
 
     spec = json.loads(args.input.read_text(encoding="utf-8"))
-    build_docx(spec, args.sample, args.output)
+    build_docx(spec, args.output, args.sample)
     print(args.output)
     return 0
 
