@@ -67,6 +67,8 @@ benchmarks, and experiments before making product or paper claims.
    - Run a red-team pass before product adoption or paper submission.
    - Look for missing baselines, data leakage, cherry-picked examples,
      hallucinated citations, fabricated numbers, and overbroad claims.
+   - Judge claims by evidence-support, not by tone — do not flag a claim merely
+     for strong wording (see `protocols/07_peer_review.md`).
 
 ## Mandatory Gates
 

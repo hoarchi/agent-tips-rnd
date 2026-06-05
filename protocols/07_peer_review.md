@@ -18,6 +18,28 @@ do.
 9. Are limitations concrete?
 10. Would a skeptical reviewer accept the claim wording?
 
+## Review Principle (evidence-based, not tone-based)
+
+When reviewing a claim — by hand or with an automated reviewer — judge **whether
+the evidence supports the claim at its stated scope**, not how confident the
+wording sounds.
+
+- Flag only a real gap: a citation that does not support the claim
+  (`reject_citation`), evidence that does not cover the claim's subject/condition
+  (`flag_unsupported`), or a claim that asserts more than the evidence shows
+  (`revise` — broader scope, causal-from-correlational, "significant" with no
+  test, extrapolation, "first/novel" with no prior-art check).
+- **Do NOT flag a claim merely for strong wording.** Confident terms
+  ("substantially", "state-of-the-art", "first", a large number) are fine *when
+  the evidence earns them*. A "default to revise on strong wording" reviewer
+  over-flags well-supported claims (precision collapse).
+
+> Provenance: exploratory finding of the `autonomous-rnd-methodology` program
+> (runs R4/R5: an adversarial default-revise reviewer hit FRR 0.44, mis-flagging
+> 7/9 strongly-worded-but-supported claims; removing that bias restored FRR to
+> 0.00 at no recall cost). Evidence tier: exploratory (synthetic N=50, single
+> model). This is review *guidance*, not a validated performance mechanism.
+
 ## Output
 
 Write `peer-review-report.md` with blocking issues, non-blocking issues, and
