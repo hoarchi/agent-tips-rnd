@@ -21,35 +21,45 @@
       ]
     },
     {
-      "heading": "2. 방법 / 설정",
+      "heading": "2. 문헌 · 사례 분석 (정성)",
+      "paragraphs": [
+        ""
+      ],
+      "bullets": [
+        { "lead": "관련 문헌:", "body": "" },
+        { "lead": "사례 분석:", "body": "" }
+      ]
+    },
+    {
+      "heading": "3. 방법 / 설정",
       "paragraphs": [
         ""
       ],
       "bullets": []
     },
     {
-      "heading": "3. 결과",
+      "heading": "4. 결과",
       "paragraphs": [
         ""
       ],
       "bullets": []
     },
     {
-      "heading": "4. 실패 유형 분류",
+      "heading": "5. 실패 유형 분류",
       "paragraphs": [
         ""
       ],
       "bullets": []
     },
     {
-      "heading": "5. 제품 / 응용 관점 해석",
+      "heading": "6. 제품 / 응용 관점 해석",
       "paragraphs": [
         ""
       ],
       "bullets": []
     },
     {
-      "heading": "6. 이번 회차 결론",
+      "heading": "7. 이번 회차 결론",
       "paragraphs": [
         ""
       ],
@@ -60,7 +70,7 @@
       ]
     },
     {
-      "heading": "7. 다음 연구 계획",
+      "heading": "8. 다음 연구 계획",
       "paragraphs": [
         ""
       ],

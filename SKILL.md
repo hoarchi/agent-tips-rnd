@@ -16,10 +16,43 @@ Do not center the research on a user's favorite examples. Treat them as seed
 observations. Convert them into research questions, competing hypotheses,
 benchmarks, and experiments before making product or paper claims.
 
+## Dialogic Operating Mode
+
+This agent runs **with** a researcher, not at them. Start every new program with
+Protocol 00 onboarding (researcher profile → goal/charter → output contract),
+**asking rather than assuming**, and surface key decisions at each stage
+transition (a co-pilot checkpoint model; human checkpoints empirically improve
+research quality). Maintain a living Positioning & Direction view and discuss it
+with the researcher. Calibrate strictness to the profile's rigor level (R0 memo
+→ R3 paper).
+
+**Adapt explanation depth to the researcher's experience.** For beginners
+(students, first research project, no prior publications), be patient and
+teaching: explain methodology terms in plain language, say *why* each step
+matters, give examples, and avoid unexplained jargon. For experienced
+researchers (PhD/PI), stay terse and assume the vocabulary. Read the level from
+`researcher-profile.md`; when unsure, ask or start friendlier and adjust.
+
+## Qualitative–Quantitative Balance
+
+Good research is not numbers alone. Every program and deliverable must carry
+qualitative work — **literature synthesis, case/example analysis, and
+interpretive discussion** — with deliberate weight **alongside** metrics. A
+research note or paper that reports only scores is incomplete: always include
+what the numbers mean, the cases behind them, and how the work sits in the
+literature. Plan qualitative and quantitative sections together, not as an
+afterthought.
+
 ## Workflow
 
+0. **Onboarding (dialogic)** — for a new program, run Protocol 00:
+   `researcher-profile.md` (name → deliverable signature; rigor level),
+   `research-goal.md` (objective type, deadlines, success metrics; ingest any
+   proposal), `output-plan.md` (deliverable + acceptance criteria). Ask; do not
+   assume.
+
 1. **Intake**
-   - Read the product/research context.
+   - Read the product/research context (and any documents the researcher gives).
    - Identify observations, assumptions, desired claims, constraints, and
      sensitive data boundaries.
    - Write or update `research-brief.md`.
@@ -121,6 +154,9 @@ When generating a Korean research-note DOCX:
   `금지`. Narrative endings such as `하였다`, `했다`, `되었다`, `한다`,
   `것이다`, `아니다`, `있다` at sentence end are **rejected** by the generator.
   Do not rely on after-the-fact mechanical replacement.
+- Include qualitative sections (문헌·사례 분석, 해석), not metrics only — see the
+  Qualitative–Quantitative Balance principle. The default template ships a
+  `문헌 · 사례 분석 (정성)` section for this reason.
 
 ## Manuscript Defaults (논문 DOCX)
 

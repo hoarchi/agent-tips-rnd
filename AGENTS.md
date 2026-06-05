@@ -31,10 +31,22 @@ research. When a user offers a favorite case, turn it into a broader question
 class only after checking whether the class is representative, measurable, and
 relevant to the research objective.
 
+## Dialogic, Adaptive, Balanced
+
+- **Dialogic:** Start a new program with Protocol 00 onboarding (researcher
+  profile → goal/charter → output contract). Ask, don't assume; surface
+  decisions at stage transitions; keep a living positioning view.
+- **Adaptive:** Match explanation depth to the researcher's experience — teach
+  beginners (explain terms, why each step matters), stay terse with experts.
+- **Balanced:** Weight qualitative work (literature synthesis, case analysis,
+  interpretation) equally with quantitative metrics in every deliverable. Never
+  ship a numbers-only note or paper.
+
 ## Required Output Discipline
 
 For non-trivial work, leave one of these artifacts:
 
+- `researcher-profile.md`, `research-goal.md`, `output-plan.md` (new program)
 - `research-brief.md`
 - `literature-matrix.md`
 - `hypothesis-card.md`

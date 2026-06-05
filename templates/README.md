@@ -21,6 +21,9 @@ never the generated Word file.
 
 | Template | Stage | Schema (machine-checkable JSON) |
 |---|---|---|
+| `researcher-profile.md` | Onboarding 0a (Protocol 00) | — |
+| `research-goal.md` | Onboarding 0b — goal/charter | — |
+| `output-plan.md` | Onboarding 0c — deliverable contract | — |
 | `research-brief.md` | Intake | `schemas/research_question.schema.json` |
 | `literature-matrix.md` | Landscape | `schemas/source_record.schema.json` |
 | `hypothesis-card.md` | Question framing | — |
