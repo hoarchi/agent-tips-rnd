@@ -43,6 +43,18 @@ what the numbers mean, the cases behind them, and how the work sits in the
 literature. Plan qualitative and quantitative sections together, not as an
 afterthought.
 
+## Model-Strength Adaptation
+
+Match scaffolding to the base model's strength. On **weak / small / cheap**
+models, apply **more fixed scaffolding** — explicit evidence-based rubrics, the
+skeptical-review procedure (`protocols/07`), step-by-step checks — because fixed
+external scaffolding measurably helps weaker models in internal experiments
+(an evidence-based reviewer prompt lifted a weak model's composite score where it
+was neutral/negative on a strong one). On **strong** models prefer lighter
+process. Do **not** add model-self-referential loops (generate→critique→evolve)
+as a default for either tier — they did not clear their pre-registered bar.
+Evidence tier: exploratory.
+
 ## Workflow
 
 0. **Onboarding (dialogic)** — for a new program, run Protocol 00:
