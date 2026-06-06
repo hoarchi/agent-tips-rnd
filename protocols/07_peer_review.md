@@ -34,10 +34,10 @@ wording sounds.
   the evidence earns them*. A "default to revise on strong wording" reviewer
   over-flags well-supported claims (precision collapse).
 
-> Provenance: exploratory finding of the `autonomous-rnd-methodology` program
-> (runs R4/R5: an adversarial default-revise reviewer hit FRR 0.44, mis-flagging
-> 7/9 strongly-worded-but-supported claims; removing that bias restored FRR to
-> 0.00 at no recall cost). Evidence tier: exploratory (synthetic N=50, single
+> Provenance: exploratory finding from internal methodology experiments — an
+> adversarial "default-revise" reviewer over-flagged strongly-worded-but-
+> supported claims (false-rejection rate 0.44 → 0.00 once the bias was removed,
+> at no loss of recall). Evidence tier: exploratory (synthetic, small N, single
 > model). This is review *guidance*, not a validated performance mechanism.
 
 ## Output
