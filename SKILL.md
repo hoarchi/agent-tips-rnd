@@ -208,4 +208,7 @@ When drafting an academic paper:
 - Use `scripts/score_extraction_diagnostics.py` when extraction diagnostics
   report partial required-evidence matches and the research needs extraction
   progress separate from strict answer correctness.
+- Use `scripts/novelty_check.py --query "..."` (OpenAlex, legal/open) to retrieve
+  prior art for any novelty claim during landscape/question-framing. It surfaces
+  evidence; it does not decide novelty. Never use Sci-Hub or paywalled scraping.
 - Run `scripts/validate_artifacts.py <artifact-dir>` when JSON artifacts exist.
